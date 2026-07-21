@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: 69-s1-db
+    ports:
+      - 54327:5432
+    environment:
+      - POSTGRES_PASSWORD=satang0706
+      - POSTGRES_USER=kanjanaphorn
+      - POSTGRES_DB=kanjanaphorn
+    volumes:
+      - ./data/data:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: 69-s1-admin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=kanjanaphorn-k@rmutp.ac.th
+      - PGADMIN_DEFAULT_PASSWORD=satang0706
+    ports:
+      - "8081:80"
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
