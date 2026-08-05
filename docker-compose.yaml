@@ -9,3 +9,10 @@ services:
       - "8081:80"
     volumes:
       - ./data/pgadmin:/var/lib/pgadmin
+volumes:
+      
+data-pgadmin:/var/lib/pgadmin
+
+volumes:
+  data-postgres:
+  data-pgadmin:
