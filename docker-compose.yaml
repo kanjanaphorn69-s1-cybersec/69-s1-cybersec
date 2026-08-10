@@ -5,19 +5,20 @@ services:
     ports:
       - 54327:5432
     environment:
-      - POSTGRES_PASSWORD=satang0706
-      - POSTGRES_USER=kanjanaphorn
-      - POSTGRES_DB=kanjanaphorn
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
     volumes:
-      - ./data/data:/var/lib/postgresql/data
+      - ./data-postgres:/var/lib/postgresql/data
 
-  pgadmin:
-    image: dpage/pgadmin4:latest
+  admin:
+    image: dpage/pgadmin4
     container_name: 69-s1-admin
-    environment:
-      - PGADMIN_DEFAULT_EMAIL=kanjanaphorn-k@rmutp.ac.th
-      - PGADMIN_DEFAULT_PASSWORD=satang0706
     ports:
-      - "8081:80"
-    volumes:
-      - ./data/pgadmin:/var/lib/pgadmin
+      - 8081:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_DEFAULT_EMAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_DEFAULT_PASSWORD}
+
+volumes:
+  data-postgres:
