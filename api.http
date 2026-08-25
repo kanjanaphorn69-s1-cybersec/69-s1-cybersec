@@ -1,0 +1,39 @@
+# API
+
+## Login
+POST http://localhost:9091/admin/login
+Content-Type: application/json
+
+{
+    "email": "kanjanaphorn-k@rmu.ac.th",
+    "password": "satang0706",
+    "rememberMe": false
+}
+
+###
+
+## Forgot
+POST http://localhost:9091/admin/forgot-password
+Content-Type: application/json
+
+{
+    "email": "kanjanaphorn-k@rmu.ac.th"
+}
+
+###
+
+## Profile
+GET http://localhost:9091/admin/me
+Authorization: Bearer <ใส่_TOKEN_ที่ได้จากตอน_LOGIN>
+
+###
+
+## Register / Signup
+POST http://localhost:9091/admin/register
+Content-Type: application/json
+
+{
+    "username": "kanjanaphorn",
+    "email": "kanjanaphorn-k@rmu.ac.th",
+    "password": "satang0706"
+}
