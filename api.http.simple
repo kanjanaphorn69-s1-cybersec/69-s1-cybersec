@@ -1,40 +1,72 @@
-### 1. Register / Signup 
-POST http://localhost:9091/api/auth/local/register
+### ============================================================
+###  ADMIN  endpoints  (Strapi admin panel)
+### ============================================================
+
+### 1. Admin - Register / Signup
+GET http://localhost:9091/admin/register-admin
 Content-Type: application/json
 
 {
-  "username": " ",
-  "email": " ",
-  "password": " "
+  "email": "",
+  "password": "",
+  "firstname": "",
+  "lastname": ""
 }
 
-### 2. Login User 
-POST http://localhost:9091/api/auth/local
-Content-Type: application/json
-
-{
-  "identifier": " ",
-  "password": " "
-}
-
-### 3. Login Admin 
+### 2. Admin - Login
 POST http://localhost:9091/admin/login
 Content-Type: application/json
 
 {
-  "email": " ",
-  "password": " ",
+  "email": "",
+  "password": "",
   "rememberMe": false
 }
 
-### 4. Forgot Password 
+### 3. Admin - Forgot Password
+POST http://localhost:9091/admin/forgot-password
+Content-Type: application/json
+
+{
+  "email": ""
+}
+
+### 4. Admin - Profile
+GET http://localhost:9091/admin/users/me
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzg4MTc4NDM1LCJleHAiOjE3OTA3NzA0MzV9.gKq_Or4qjug3C2TeCse8w0ttVytWPfCdJ7edYkqk3is
+
+### ============================================================
+###  USER  endpoints  (Strapi users-permissions plugin)
+### ============================================================
+
+### 5. User - Register / Signup
+# ใช้ {{$guid}} เพื่อให้ username/email ไม่ซ้ำกันทุกครั้งที่ run -> ได้ 200 เสมอ
+POST http://localhost:9091/api/auth/local/register
+Content-Type: application/json
+
+{
+  "username": "",
+  "email": "",
+  "password": ""
+}
+
+### 6. User - Login
+POST http://localhost:9091/api/auth/local
+Content-Type: application/json
+
+{
+  "identifier": "",
+  "password": ""
+}
+
+### 7. User - Forgot Password
 POST http://localhost:9091/api/auth/forgot-password
 Content-Type: application/json
 
 {
-  "email": " "
+  "email": ""
 }
 
-### 5. Profile
+### 8. User - Profile
 GET http://localhost:9091/api/users/me
-Authorization: Bearer You Token
+Authorization: Bearer 
